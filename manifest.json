@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Data Capture and Autofill",
+  "version": "1.0",
+  "description": "Capture data from one page and autofill it on another page.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "contextMenus" // Permission to use context menus
+  ],
+  "host_permissions": [
+    "<all_urls>" // Matches all web pages
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"], // Matches all web pages
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "commands": {
+    "captureHighlightedData": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U"
+      },
+      "description": "Capture highlighted data"
+    }
+  }
+}
