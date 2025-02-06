@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   chrome.storage.local.get('capturedData', (result) => {
     const capturedData = result.capturedData || {};
 
-    capturedDataList.innerHTML = ''; // Clear the list before adding items
+    capturedDataList.innerHTML = '';
 
     const FIELD_LABELS = {
       first_name: 'First Name',
