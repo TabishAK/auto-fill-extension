@@ -8,21 +8,14 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting",
-    "contextMenus" // Permission to use context menus
-  ],
-  "host_permissions": [
-    "<all_urls>" // Matches all web pages
-  ],
+  "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"], // Matches all web pages
+      "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
   ],
