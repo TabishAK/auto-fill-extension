@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const capturedDataList = document.getElementById('capturedDataList');
+  const clearButton = document.getElementById('clear-btn');
 
   chrome.storage.local.get('capturedData', (result) => {
     const capturedData = result.capturedData || {};
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       phone: 'Phone',
       postal_code: 'Zip Code',
       mbi: 'MBI',
-
+      
       planId: 'Plan ID',
       medicad: 'Medicaid',
       newCarrierName: 'New Carrier Name',
@@ -40,28 +41,40 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-});
 
-document.getElementById('autoFillButton').addEventListener('click', () => {
-  chrome.storage.local.get('capturedData', (result) => {
-    const capturedData = result.capturedData;
+  // Auto-fill button functionality
+  document.getElementById('autoFillButton').addEventListener('click', () => {
+    chrome.storage.local.get('capturedData', (result) => {
+      const capturedData = result.capturedData;
 
-    if (capturedData && Object.keys(capturedData).length > 0) {
-      console.log('Sending data to content script:', capturedData);
+      if (capturedData && Object.keys(capturedData).length > 0) {
+        console.log('Sending data to content script:', capturedData);
 
-      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(
-          tabs[0].id,
-          { action: 'autoFill', data: capturedData },
-          (response) => {
-            console.log('Response from content script:', response);
-          }
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+          chrome.tabs.sendMessage(
+            tabs[0].id,
+            { action: 'autoFill', data: capturedData },
+            (response) => {
+              console.log('Response from content script:', response);
+            }
+          );
+        });
+      } else {
+        alert(
+          'No captured data found! Please highlight text and capture it first.'
         );
-      });
-    } else {
-      alert(
-        'No captured data found! Please highlight text and capture it first.'
-      );
-    }
+      }
+    });
+  });
+
+  // Clear button functionality
+  clearButton.addEventListener('click', () => {
+    chrome.storage.local.remove('capturedData', () => {
+      if (chrome.runtime.lastError) {
+        console.error('Error clearing storage:', chrome.runtime.lastError);
+      } else {
+        capturedDataList.innerHTML = ''; // Clear the UI list
+      }
+    });
   });
 });
