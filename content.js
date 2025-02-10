@@ -22,6 +22,29 @@ function autoFillForm(data) {
       'PostalCode',
     ],
     mbi: ['contact.mbi', 'mbi', 'MBI'],
+
+    planId: ['contact.planId', 'contact.plan_id', 'planId', 'PlanId'],
+    medicad: ['contact.medicaid', 'medicaid', 'Medicaid'],
+    newCarrierName: [
+      'contact.new_carrier_name',
+      'contact.newCarrierName',
+      'newCarrierName',
+      'NewCarrierName',
+      'new_carrier_name',
+    ],
+    newCarrierPlanName: [
+      'contact.new_carrier_plan_name',
+      'newCarrierPlanName',
+      'NewCarrierPlanName',
+      'new_carrier_plan_name',
+    ],
+    confirmationNumber: [
+      'contact.confirmation_number',
+      'contact.confirmationNumber',
+      'confirmationNumber',
+      'ConfirmationNumber',
+      'confirmation_number',
+    ],
   };
 
   console.log('Auto-filling form with data:', data);

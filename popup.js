@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
       phone: 'Phone',
       postal_code: 'Zip Code',
       mbi: 'MBI',
+
+      planId: 'Plan ID',
+      medicad: 'Medicaid',
+      newCarrierName: 'New Carrier Name',
+      newCarrierPlanName: 'New Carrier Plan Name',
+      confirmationNumber: 'Confirmation Number',
     };
 
     // Iterate in the predefined order and display only non-empty values

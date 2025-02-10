@@ -9,6 +9,11 @@ const FIELD_LABELS = {
   phone: 'Phone',
   postal_code: 'Zip Code',
   mbi: 'MBI',
+  planId: 'Plan ID',
+  medicad: 'Medicaid',
+  newCarrierName: 'New Carrier Name',
+  newCarrierPlanName: 'New Carrier Plan Name',
+  confirmationNumber: 'Confirmation Number',
 };
 
 // Create the parent context menu item

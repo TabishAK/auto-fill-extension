@@ -37,15 +37,16 @@
     #capturedDataList {
       margin: 0;
       padding: 0;
-      line-height: 10px;
       list-style: none;
+      line-height: 0px;
     }
 
     #capturedDataList li {
-      padding: 5px 0;
-      /* Adds spacing between list items */
+      padding: 11px;
+      padding: 3px 0;
       font-size: 14px;
       color: #333;
+      line-height: 16px;
     }
 
     .data_label {
@@ -57,14 +58,29 @@
     #autoFillButton {
       margin-top: 2rem;
     }
+
+    .clear-btn {
+      display: flex;
+      justify-content: flex-end;
+      cursor: pointer;
+    }
+
+    .popup-title {
+      padding: 0 !important;
+      margin: 0;
+      padding-bottom: 10px !important;
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <h1>Captured Data</h1>
+    <div class="clear-btn">
+      <div id="clear-btn">Clear</div>
+    </div>
+    <h1 class="popup-title">Captured Data</h1>
     <ul id="capturedDataList"></ul>
-    <button id="autoFillButton">Auto-Fill on Page</button>
+    <button id="autoFillButton">Auto Fill on Page</button>
   </div>
   <script src="popup.js"></script>
 </body>
