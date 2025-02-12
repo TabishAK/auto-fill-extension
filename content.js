@@ -1,4 +1,3 @@
-// Function to auto-fill the form
 function autoFillForm(data) {
   const INPUT_NAME_MAPPING = {
     first_name: [
@@ -58,10 +57,8 @@ function autoFillForm(data) {
       continue;
     }
 
-    // Select ALL input fields (text + tel)
-    const inputs = document.querySelectorAll(
-      'input[type="text"], input[type="tel"]'
-    );
+    // Select all input fields (no type restrictions)
+    const inputs = document.querySelectorAll('input');
 
     inputs.forEach((input) => {
       const inputName = input.name.toLowerCase().replace(/\s+/g, ''); // Normalize input name
