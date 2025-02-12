@@ -26,6 +26,7 @@ function autoFillForm(data) {
     planId: ['contact.planId', 'contact.plan_id', 'planId', 'PlanId'],
     medicad: ['contact.medicaid', 'medicaid', 'Medicaid'],
     newCarrierName: [
+      'contact.carrier',
       'contact.new_carrier_name',
       'contact.newCarrierName',
       'newCarrierName',
@@ -33,6 +34,7 @@ function autoFillForm(data) {
       'new_carrier_name',
     ],
     newCarrierPlanName: [
+      'contact.new_plan_name',
       'contact.new_carrier_plan_name',
       'newCarrierPlanName',
       'NewCarrierPlanName',
